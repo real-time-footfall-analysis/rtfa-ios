@@ -8,9 +8,14 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
 final class Location: BaseObject {
     @objc dynamic private var eventId: Int = 0
+    var event: Event? {
+        let realm = try! Realm()
+        return realm.object(ofType: Event.self, forPrimaryKey: eventId)
+    }
     @objc dynamic var lat: Double = 0
     @objc dynamic var long: Double = 0
     @objc dynamic var radius: Double = 0

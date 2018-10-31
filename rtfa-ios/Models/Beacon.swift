@@ -8,9 +8,14 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
 final class Beacon: BaseObject {
     @objc dynamic private var eventId: Int = 0
+    var event: Event? {
+        let realm = try! Realm()
+        return realm.object(ofType: Event.self, forPrimaryKey: eventId)
+    }
     @objc dynamic var minor: Int = 0
     @objc dynamic var major: Int = 0
     @objc dynamic var uuid: String = ""
