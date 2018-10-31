@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.7.0)
+  - EstimoteSDK (4.27.0)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - EstimoteSDK
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - EstimoteSDK
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  EstimoteSDK: 61935c7fbcb9fe93b97b0360351aef66fb1c338d
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: a8a9b462324fd37a8f341c7e456aaf93eaf5337f
+
+COCOAPODS: 1.5.0
