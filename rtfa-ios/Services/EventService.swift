@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class EventService {
     
@@ -21,14 +22,16 @@ class EventService {
                     return
                 }
                 
-                print(json)
-                
                 var events: [Event] = []
                 for item in json {
                     guard let event = Event(json: item) else { continue }
                     events.append(event)
                 }
                 
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.add(events, update: true)
+                }
                 completion(events)
             case .failure(let error):
                 print("Failed to get events - \(error.localizedDescription)")

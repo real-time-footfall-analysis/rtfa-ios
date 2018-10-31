@@ -9,21 +9,38 @@
 import Foundation
 import SwiftyJSON
 
-class Location: Region, Unmarshallable {
-    let lat: Double
-    let long: Double
-    let radius: Double
+final class Location: BaseObject {
+    @objc dynamic private var eventId: Int = 0
+    @objc dynamic var lat: Double = 0
+    @objc dynamic var long: Double = 0
+    @objc dynamic var radius: Double = 0
     
-    required init?(json: JSON) {
+}
+
+extension Location: Unmarshallable {
+    convenience init?(json: JSON) {
+        self.init()
         guard let id = json["regionID"].int,
             let eventId = json["eventID"].int,
             let lat = json["lat"].double,
             let long = json["lng"].double,
             let rad = json["radius"].double else { return nil }
         
+        self.id = id
+        self.created = Date()
+        self.eventId = eventId
         self.lat = lat
         self.long = long
         self.radius = rad
-        super.init(id: id, event: eventId)
+    }
+}
+
+extension Location: Region {
+    func getEventId() -> Int {
+        return self.eventId
+    }
+    
+    func getRegionId() -> Int {
+        return self.id
     }
 }

@@ -9,13 +9,14 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class RegionService {
     static func sendRegionUpdate(region: Region, isEntering: Bool) {
         guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
         let params: Parameters = ["uuid": userID,
-                                  "eventId": region.event,
-                                  "regionId": region.id,
+                                  "eventId": region.getEventId(),
+                                  "regionId": region.getRegionId(),
                                   "entering": isEntering,
                                   "occurredAt": Int(Date().timeIntervalSince1970)]
         
@@ -42,7 +43,11 @@ class RegionService {
                         locations.append(loc)
                     }
                 }
-                
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.add(beacons, update: true)
+                    realm.add(locations, update: true)
+                }
                 completion(beacons, locations)
             case .failure(let error):
                 print("Failed to get regions - \(error.localizedDescription)")

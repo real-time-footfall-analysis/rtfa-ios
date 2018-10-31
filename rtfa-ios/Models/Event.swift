@@ -10,14 +10,22 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class Event: Unmarshallable {
-    let id: Int
-    let name: String
-    let location: String
-    let startDate: Date
-    let endDate: Date
-    let eventType: EventType
-    let coverPhotoURL: String
+final class Event: BaseObject {
+    @objc dynamic var name: String = ""
+    @objc dynamic var location: String = ""
+    @objc dynamic var startDate: Date = Date()
+    @objc dynamic var endDate: Date = Date()
+    @objc dynamic private var rawEventType: String = ""
+    var eventType: EventType {
+        return EventType(rawValue: rawEventType) ?? .outdoor
+    }
+    
+    @objc dynamic var coverPhotoURL: String = ""
+    
+    enum EventType: String {
+        case indoor = "indoor"
+        case outdoor = "outdoor"
+    }
     
     var image: UIImage? = nil
     
@@ -42,13 +50,10 @@ class Event: Unmarshallable {
             }
         }.resume()
     }
-    
-    enum EventType: String {
-        case indoor = "indoor"
-        case outdoor = "outdoor"
-    }
-    
-    required init?(json: JSON) {
+}
+
+extension Event: Unmarshallable {
+    convenience init?(json: JSON) {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
@@ -60,16 +65,18 @@ class Event: Unmarshallable {
             let startDate = dateFormatter.date(from: startDateString),
             let endDateString = json["endDate"].string,
             let endDate = dateFormatter.date(from: endDateString),
-            let eventType = EventType(rawValue: json["indoorOutdoor"].string ?? ""),
+            let rawEventType = json["indoorOutdoor"].string,
             let coverPhotoURL = json["coverPhotoUrl"].string
-        else { return nil }
+            else { return nil }
         
+        self.init()
         self.id = id
+        self.created = Date()
         self.name = name
         self.location = location
         self.startDate = startDate
         self.endDate = endDate
-        self.eventType = eventType
+        self.rawEventType = rawEventType
         self.coverPhotoURL = coverPhotoURL
     }
 }
