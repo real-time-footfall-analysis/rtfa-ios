@@ -9,6 +9,7 @@ target 'rtfa-ios' do
   pod 'EstimoteSDK'
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'RealmSwift'
 
   target 'rtfa-iosTests' do
     inherit! :search_paths
