@@ -26,6 +26,8 @@
 		04F7A10E2188910F00B3F461 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7A10C2188910F00B3F461 /* EventTableViewCell.xib */; };
 		04F7A1132189CB9600B3F461 /* EventTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A1112189CB9600B3F461 /* EventTitleTableViewCell.swift */; };
 		04F7A1142189CB9600B3F461 /* EventTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7A1122189CB9600B3F461 /* EventTitleTableViewCell.xib */; };
+		04F7A1162189D94900B3F461 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A1152189D94900B3F461 /* BaseObject.swift */; };
+		04F7A1182189ECB200B3F461 /* AttendingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A1172189ECB200B3F461 /* AttendingEvent.swift */; };
 		109732B61CDCBF845BB42127 /* Pods_rtfa_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6457CFB596FCC879BCBEBEF5 /* Pods_rtfa_ios.framework */; };
 		66832DA523C79FC9B38AAF5E /* Pods_rtfa_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD690C898A0E4C965CA9B065 /* Pods_rtfa_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		04F7A10C2188910F00B3F461 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		04F7A1112189CB9600B3F461 /* EventTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTitleTableViewCell.swift; sourceTree = "<group>"; };
 		04F7A1122189CB9600B3F461 /* EventTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTitleTableViewCell.xib; sourceTree = "<group>"; };
+		04F7A1152189D94900B3F461 /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
+		04F7A1172189ECB200B3F461 /* AttendingEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendingEvent.swift; sourceTree = "<group>"; };
 		6457CFB596FCC879BCBEBEF5 /* Pods_rtfa_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rtfa_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800D0912C55E3121022476BE /* Pods-rtfa-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rtfa-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-rtfa-ios/Pods-rtfa-ios.release.xcconfig"; sourceTree = "<group>"; };
 		BD690C898A0E4C965CA9B065 /* Pods_rtfa_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rtfa_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,11 +100,13 @@
 		04434CA62177A40F001A85FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04F7A1152189D94900B3F461 /* BaseObject.swift */,
 				04434CAB2178CD85001A85FA /* Unmarshallable.swift */,
 				04434CA72177A72C001A85FA /* Region.swift */,
 				04434CA42177A1B1001A85FA /* Location.swift */,
 				04434CA22177A0B0001A85FA /* Beacon.swift */,
 				04EFF60E217A0E4B00C95725 /* Event.swift */,
+				04F7A1172189ECB200B3F461 /* AttendingEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -379,6 +385,8 @@
 				04F7A1132189CB9600B3F461 /* EventTitleTableViewCell.swift in Sources */,
 				045316792174B9B7007EAA3E /* LocationManager.swift in Sources */,
 				04434CAC2178CD85001A85FA /* Unmarshallable.swift in Sources */,
+				04F7A1162189D94900B3F461 /* BaseObject.swift in Sources */,
+				04F7A1182189ECB200B3F461 /* AttendingEvent.swift in Sources */,
 				04434CA32177A0B0001A85FA /* Beacon.swift in Sources */,
 				04573F2A2174C04A00DE6CE8 /* RegionService.swift in Sources */,
 			);

@@ -8,23 +8,43 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-// TODO: Change to persistant class when UI is built up
-class Beacon: Region, Unmarshallable {
-    let minor: Int
-    let major: Int
-    let uuid: String
-    
-    required init?(json: JSON) {
+final class Beacon: BaseObject {
+    @objc dynamic private var eventId: Int = 0
+    var event: Event? {
+        let realm = try! Realm()
+        return realm.object(ofType: Event.self, forPrimaryKey: eventId)
+    }
+    @objc dynamic var minor: Int = 0
+    @objc dynamic var major: Int = 0
+    @objc dynamic var uuid: String = ""
+}
+
+extension Beacon: Unmarshallable {
+    convenience init?(json: JSON) {
+        self.init()
         guard let id = json["regionID"].int,
             let eventId = json["eventID"].int,
             let minor = json["minor"].int,
             let major = json["major"].int,
             let uuid = json["uuid"].string else { return nil }
         
+        self.id = id
+        self.created = Date()
+        self.eventId = eventId
         self.minor = minor
         self.major = major
         self.uuid = uuid
-        super.init(id: id, event: eventId)
+    }
+}
+
+extension Beacon: Region {
+    func getEventId() -> Int {
+        return self.eventId
+    }
+    
+    func getRegionId() -> Int {
+        return self.id
     }
 }

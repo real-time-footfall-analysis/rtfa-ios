@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Region {
-    let id: Int
-    let event: Int
-    
-    init(id: Int, event: Int) {
-        self.id = id
-        self.event = event
-    }
+//final class Region: BaseObject {
+//
+//    @objc dynamic var eventId = 1
+////    var event: Event {
+////        return Event
+////    }
+//}
+
+protocol Region {
+    func getEventId() -> Int
+    func getRegionId() -> Int
 }

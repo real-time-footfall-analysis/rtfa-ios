@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EventsViewController: UIViewController {
     
@@ -17,9 +18,8 @@ class EventsViewController: UIViewController {
         case title = "title"
     }
     
-    private var locationManager: LocationManager!
     private var events: [Event] = []
-    private var myEvents: [Event] = []
+    private var attendingEvents: [AttendingEvent] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +33,24 @@ class EventsViewController: UIViewController {
         
         // Get the events
         EventService.getEvents { events in
-            self.events = events
-            self.tableView.reloadData()
+            self.updateEvents()
         }
-
-//        RegionService.getRegions(event: 2) { (beacons, locations) in
-//            self.locationManager = LocationManager(beacons: beacons, locations: locations)
-//            self.locationManager.startMonitoring()
-//        }
         
        // Ensure we can always swipe to go back
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateEvents()
+    }
+    
+    func updateEvents() {
+        let realm = try! Realm()
+        events = Array(realm.objects(Event.self).sorted(by: { $0.startDate < $1.startDate }))
+        attendingEvents = Array(realm.objects(AttendingEvent.self).sorted(by: { $0.event!.startDate < $1.event!.startDate }))
+        tableView.reloadData()
     }
 }
 
@@ -55,7 +62,26 @@ extension EventsViewController: UIGestureRecognizerDelegate {
 }
 
 extension EventsViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            return
+        }
+        
+        // TODO: Remove this when next view controller is ready
+        let realm = try! Realm()
+        if indexPath.section == 0 {
+            try! realm.write {
+                realm.delete(attendingEvents[indexPath.row - 1])
+            }
+        } else {
+            let attendEvent = AttendingEvent(event: events[indexPath.row - 1])
+            try! realm.write {
+                realm.add(attendEvent)
+            }
+        }
+        
+        updateEvents()
+    }
 }
 
 extension EventsViewController: UITableViewDataSource {
@@ -65,7 +91,7 @@ extension EventsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return myEvents.count > 0 ? myEvents.count + 1 : 0
+            return attendingEvents.count > 0 ? attendingEvents.count + 1 : 0
         }
         
         return events.count > 0 ? events.count + 1 : 0
@@ -79,7 +105,13 @@ extension EventsViewController: UITableViewDataSource {
             return cell
         }
         
-        let event = events[indexPath.row - 1]
+        let event: Event
+        if indexPath.section == 0 {
+            event = attendingEvents[indexPath.row - 1].event!
+        } else {
+            event = events[indexPath.row - 1]
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.default.rawValue, for: indexPath) as! EventTableViewCell
         
         event.getImage { image in
