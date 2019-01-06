@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040E24A3219E32A900D09A78 /* EmergencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E24A2219E32A900D09A78 /* EmergencyService.swift */; };
+		042AA602219DCAAA00DB226F /* VisitedRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042AA601219DCAAA00DB226F /* VisitedRegion.swift */; };
+		042AA604219DD40F00DB226F /* GPSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042AA603219DD40E00DB226F /* GPSUtils.swift */; };
 		04434CA32177A0B0001A85FA /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04434CA22177A0B0001A85FA /* Beacon.swift */; };
 		04434CA52177A1B1001A85FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04434CA42177A1B1001A85FA /* Location.swift */; };
 		04434CA82177A72C001A85FA /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04434CA72177A72C001A85FA /* Region.swift */; };
@@ -20,6 +23,14 @@
 		045316792174B9B7007EAA3E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045316782174B9B7007EAA3E /* LocationManager.swift */; };
 		04573F2A2174C04A00DE6CE8 /* RegionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04573F292174C04A00DE6CE8 /* RegionService.swift */; };
 		04573F2C2174C12200DE6CE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04573F2B2174C12200DE6CE8 /* Constants.swift */; };
+		0477D52521AEED68006AC9F6 /* RegionBreakdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477D52421AEED68006AC9F6 /* RegionBreakdownViewController.swift */; };
+		0477D52721AF014E006AC9F6 /* RegionBreakdownService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477D52621AF014E006AC9F6 /* RegionBreakdownService.swift */; };
+		0477D52A21AF024D006AC9F6 /* RegionBreakdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477D52821AF024D006AC9F6 /* RegionBreakdownTableViewCell.swift */; };
+		0477D52B21AF024D006AC9F6 /* RegionBreakdownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0477D52921AF024D006AC9F6 /* RegionBreakdownTableViewCell.xib */; };
+		04A2C64C218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2C64A218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.swift */; };
+		04A2C64D218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A2C64B218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.xib */; };
+		04A2C64F218B43AF00585BC4 /* RegionWaitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2C64E218B43AF00585BC4 /* RegionWaitTime.swift */; };
+		04A2C651218B46DE00585BC4 /* RegionWaitTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2C650218B46DE00585BC4 /* RegionWaitTimeService.swift */; };
 		04EFF60F217A0E4B00C95725 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFF60E217A0E4B00C95725 /* Event.swift */; };
 		04F7A10A21888A3D00B3F461 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A10921888A3D00B3F461 /* EventService.swift */; };
 		04F7A10D2188910F00B3F461 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A10B2188910F00B3F461 /* EventTableViewCell.swift */; };
@@ -28,6 +39,8 @@
 		04F7A1142189CB9600B3F461 /* EventTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7A1122189CB9600B3F461 /* EventTitleTableViewCell.xib */; };
 		04F7A1162189D94900B3F461 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A1152189D94900B3F461 /* BaseObject.swift */; };
 		04F7A1182189ECB200B3F461 /* AttendingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A1172189ECB200B3F461 /* AttendingEvent.swift */; };
+		04F7A11B218A07B300B3F461 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A11A218A07B300B3F461 /* EventDetailViewController.swift */; };
+		04F7A11D218A0A1D00B3F461 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A11C218A0A1D00B3F461 /* ActionButton.swift */; };
 		109732B61CDCBF845BB42127 /* Pods_rtfa_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6457CFB596FCC879BCBEBEF5 /* Pods_rtfa_ios.framework */; };
 		66832DA523C79FC9B38AAF5E /* Pods_rtfa_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD690C898A0E4C965CA9B065 /* Pods_rtfa_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040E24A2219E32A900D09A78 /* EmergencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyService.swift; sourceTree = "<group>"; };
+		042AA601219DCAAA00DB226F /* VisitedRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitedRegion.swift; sourceTree = "<group>"; };
+		042AA603219DD40E00DB226F /* GPSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSUtils.swift; sourceTree = "<group>"; };
 		04434CA22177A0B0001A85FA /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		04434CA42177A1B1001A85FA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		04434CA72177A72C001A85FA /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
@@ -61,6 +77,15 @@
 		04573F262174BD5900DE6CE8 /* rtfa-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rtfa-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		04573F292174C04A00DE6CE8 /* RegionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionService.swift; sourceTree = "<group>"; };
 		04573F2B2174C12200DE6CE8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0477D52221AEC480006AC9F6 /* rtfa-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "rtfa-ios.entitlements"; sourceTree = "<group>"; };
+		0477D52421AEED68006AC9F6 /* RegionBreakdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionBreakdownViewController.swift; sourceTree = "<group>"; };
+		0477D52621AF014E006AC9F6 /* RegionBreakdownService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionBreakdownService.swift; sourceTree = "<group>"; };
+		0477D52821AF024D006AC9F6 /* RegionBreakdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionBreakdownTableViewCell.swift; sourceTree = "<group>"; };
+		0477D52921AF024D006AC9F6 /* RegionBreakdownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionBreakdownTableViewCell.xib; sourceTree = "<group>"; };
+		04A2C64A218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailQueueTimeTableViewCell.swift; sourceTree = "<group>"; };
+		04A2C64B218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailQueueTimeTableViewCell.xib; sourceTree = "<group>"; };
+		04A2C64E218B43AF00585BC4 /* RegionWaitTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionWaitTime.swift; sourceTree = "<group>"; };
+		04A2C650218B46DE00585BC4 /* RegionWaitTimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionWaitTimeService.swift; sourceTree = "<group>"; };
 		04EFF60E217A0E4B00C95725 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		04F7A10921888A3D00B3F461 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		04F7A10B2188910F00B3F461 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +94,8 @@
 		04F7A1122189CB9600B3F461 /* EventTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTitleTableViewCell.xib; sourceTree = "<group>"; };
 		04F7A1152189D94900B3F461 /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		04F7A1172189ECB200B3F461 /* AttendingEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendingEvent.swift; sourceTree = "<group>"; };
+		04F7A11A218A07B300B3F461 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		04F7A11C218A0A1D00B3F461 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		6457CFB596FCC879BCBEBEF5 /* Pods_rtfa_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rtfa_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800D0912C55E3121022476BE /* Pods-rtfa-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rtfa-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-rtfa-ios/Pods-rtfa-ios.release.xcconfig"; sourceTree = "<group>"; };
 		BD690C898A0E4C965CA9B065 /* Pods_rtfa_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rtfa_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +134,8 @@
 				04434CA22177A0B0001A85FA /* Beacon.swift */,
 				04EFF60E217A0E4B00C95725 /* Event.swift */,
 				04F7A1172189ECB200B3F461 /* AttendingEvent.swift */,
+				04A2C64E218B43AF00585BC4 /* RegionWaitTime.swift */,
+				042AA601219DCAAA00DB226F /* VisitedRegion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,11 +163,16 @@
 		044A2E1E21737782007D3820 /* rtfa-ios */ = {
 			isa = PBXGroup;
 			children = (
+				0477D52221AEC480006AC9F6 /* rtfa-ios.entitlements */,
 				04573F2B2174C12200DE6CE8 /* Constants.swift */,
 				045316782174B9B7007EAA3E /* LocationManager.swift */,
+				042AA603219DD40E00DB226F /* GPSUtils.swift */,
+				04F7A11E218A0A2100B3F461 /* UI */,
 				04434CA62177A40F001A85FA /* Models */,
 				04573F2D2174C14300DE6CE8 /* Services */,
 				04F7A10F2188927500B3F461 /* Events */,
+				04F7A119218A079100B3F461 /* Event Detail */,
+				0477D52321AEED44006AC9F6 /* Region Breakdown */,
 				044A2E1F21737782007D3820 /* AppDelegate.swift */,
 				044A2E2321737782007D3820 /* Main.storyboard */,
 				044A2E2621737785007D3820 /* Assets.xcassets */,
@@ -163,8 +197,21 @@
 			children = (
 				04F7A10921888A3D00B3F461 /* EventService.swift */,
 				04573F292174C04A00DE6CE8 /* RegionService.swift */,
+				040E24A2219E32A900D09A78 /* EmergencyService.swift */,
+				04A2C650218B46DE00585BC4 /* RegionWaitTimeService.swift */,
+				0477D52621AF014E006AC9F6 /* RegionBreakdownService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0477D52321AEED44006AC9F6 /* Region Breakdown */ = {
+			isa = PBXGroup;
+			children = (
+				0477D52421AEED68006AC9F6 /* RegionBreakdownViewController.swift */,
+				0477D52821AF024D006AC9F6 /* RegionBreakdownTableViewCell.swift */,
+				0477D52921AF024D006AC9F6 /* RegionBreakdownTableViewCell.xib */,
+			);
+			path = "Region Breakdown";
 			sourceTree = "<group>";
 		};
 		04F7A10F2188927500B3F461 /* Events */ = {
@@ -177,6 +224,24 @@
 				04F7A1122189CB9600B3F461 /* EventTitleTableViewCell.xib */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		04F7A119218A079100B3F461 /* Event Detail */ = {
+			isa = PBXGroup;
+			children = (
+				04F7A11A218A07B300B3F461 /* EventDetailViewController.swift */,
+				04A2C64A218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.swift */,
+				04A2C64B218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.xib */,
+			);
+			path = "Event Detail";
+			sourceTree = "<group>";
+		};
+		04F7A11E218A0A2100B3F461 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				04F7A11C218A0A1D00B3F461 /* ActionButton.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		0C765788073B95343611A032 /* Pods */ = {
@@ -257,6 +322,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					044A2E2F21737785007D3820 = {
@@ -290,7 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F7A10E2188910F00B3F461 /* EventTableViewCell.xib in Resources */,
+				0477D52B21AF024D006AC9F6 /* RegionBreakdownTableViewCell.xib in Resources */,
 				044A2E2A21737785007D3820 /* LaunchScreen.storyboard in Resources */,
+				04A2C64D218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.xib in Resources */,
 				04F7A1142189CB9600B3F461 /* EventTitleTableViewCell.xib in Resources */,
 				044A2E2721737785007D3820 /* Assets.xcassets in Resources */,
 				044A2E2521737782007D3820 /* Main.storyboard in Resources */,
@@ -333,15 +403,21 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-rtfa-ios/Pods-rtfa-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/PushNotifications/PushNotifications.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PushNotifications.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,7 +452,12 @@
 			files = (
 				04F7A10D2188910F00B3F461 /* EventTableViewCell.swift in Sources */,
 				04573F2C2174C12200DE6CE8 /* Constants.swift in Sources */,
+				042AA602219DCAAA00DB226F /* VisitedRegion.swift in Sources */,
+				04A2C651218B46DE00585BC4 /* RegionWaitTimeService.swift in Sources */,
 				044A2E2221737782007D3820 /* EventsViewController.swift in Sources */,
+				040E24A3219E32A900D09A78 /* EmergencyService.swift in Sources */,
+				0477D52721AF014E006AC9F6 /* RegionBreakdownService.swift in Sources */,
+				0477D52521AEED68006AC9F6 /* RegionBreakdownViewController.swift in Sources */,
 				044A2E2021737782007D3820 /* AppDelegate.swift in Sources */,
 				04434CA82177A72C001A85FA /* Region.swift in Sources */,
 				04F7A10A21888A3D00B3F461 /* EventService.swift in Sources */,
@@ -385,9 +466,15 @@
 				04F7A1132189CB9600B3F461 /* EventTitleTableViewCell.swift in Sources */,
 				045316792174B9B7007EAA3E /* LocationManager.swift in Sources */,
 				04434CAC2178CD85001A85FA /* Unmarshallable.swift in Sources */,
+				04A2C64F218B43AF00585BC4 /* RegionWaitTime.swift in Sources */,
+				04F7A11D218A0A1D00B3F461 /* ActionButton.swift in Sources */,
 				04F7A1162189D94900B3F461 /* BaseObject.swift in Sources */,
+				0477D52A21AF024D006AC9F6 /* RegionBreakdownTableViewCell.swift in Sources */,
 				04F7A1182189ECB200B3F461 /* AttendingEvent.swift in Sources */,
 				04434CA32177A0B0001A85FA /* Beacon.swift in Sources */,
+				04F7A11B218A07B300B3F461 /* EventDetailViewController.swift in Sources */,
+				04A2C64C218B35DF00585BC4 /* EventDetailQueueTimeTableViewCell.swift in Sources */,
+				042AA604219DD40F00DB226F /* GPSUtils.swift in Sources */,
 				04573F2A2174C04A00DE6CE8 /* RegionService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +639,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "rtfa-ios/rtfa-ios.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P56Y8WP9V9;
 				INFOPLIST_FILE = "rtfa-ios/Info.plist";
@@ -561,6 +650,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jdjack.rtfa-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "rtfa-ios/rtfa-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -574,6 +664,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "rtfa-ios/rtfa-ios.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P56Y8WP9V9;
 				INFOPLIST_FILE = "rtfa-ios/Info.plist";
@@ -583,6 +675,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jdjack.rtfa-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "rtfa-ios/rtfa-ios-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

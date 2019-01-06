@@ -19,6 +19,8 @@ final class Location: BaseObject {
     @objc dynamic var lat: Double = 0
     @objc dynamic var long: Double = 0
     @objc dynamic var radius: Double = 0
+    @objc dynamic var isQueue: Bool = false
+    @objc dynamic var name: String = ""
     
 }
 
@@ -29,7 +31,10 @@ extension Location: Unmarshallable {
             let eventId = json["eventID"].int,
             let lat = json["lat"].double,
             let long = json["lng"].double,
-            let rad = json["radius"].double else { return nil }
+            let rad = json["radius"].double,
+            let isQueue = json["isQueue"].bool,
+            let name = json["name"].string
+            else { return nil }
         
         self.id = id
         self.created = Date()
@@ -37,6 +42,8 @@ extension Location: Unmarshallable {
         self.lat = lat
         self.long = long
         self.radius = rad
+        self.isQueue = isQueue
+        self.name = name
     }
 }
 
@@ -47,5 +54,9 @@ extension Location: Region {
     
     func getRegionId() -> Int {
         return self.id
+    }
+    
+    func getName() -> String {
+        return self.name
     }
 }

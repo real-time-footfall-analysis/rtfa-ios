@@ -10,6 +10,9 @@ target 'rtfa-ios' do
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'RealmSwift'
+  pod 'PushNotifications'
+  pod 'Charts'
+  pod 'SwiftDate', '~> 5.0'
 
   target 'rtfa-iosTests' do
     inherit! :search_paths

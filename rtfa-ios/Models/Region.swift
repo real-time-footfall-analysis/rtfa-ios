@@ -20,4 +20,5 @@ import RealmSwift
 protocol Region {
     func getEventId() -> Int
     func getRegionId() -> Int
+    func getName() -> String
 }
