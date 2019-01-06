@@ -67,8 +67,8 @@ class EventDetailViewController: UIViewController {
             tableView.isHidden = false
             paramedicButton.isHidden = false
         } else {
-            queueTimesLabel.isHidden = true
-            tableView.isHidden = true
+//            queueTimesLabel.isHidden = true
+//            tableView.isHidden = true
 //            paramedicButton.isHidden = true
         }
 
@@ -169,7 +169,15 @@ extension EventDetailViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.default.rawValue, for: indexPath) as! EventDetailQueueTimeTableViewCell
         cell.titleLabel.text = waitTime.region.getName()
-        cell.timeLabel.text = "\(waitTime.waitTime) minutes"
+        
+        if waitTime.waitTime < 60 {
+            cell.timeLabel.text = "\(Int(waitTime.waitTime)) minutes"
+        } else {
+            
+            let hours = Int((waitTime.waitTime / 60) * 10)
+            cell.timeLabel.text = "\(Double(hours) / 10) hours"
+        }
+        
         return cell
     }
 }
