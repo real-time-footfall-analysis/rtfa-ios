@@ -1,34 +1,48 @@
 PODS:
   - Alamofire (4.7.0)
+  - Charts (3.2.1):
+    - Charts/Core (= 3.2.1)
+  - Charts/Core (3.2.1)
   - EstimoteSDK (4.27.0)
+  - PushNotifications (1.1.0)
   - Realm (3.11.1):
     - Realm/Headers (= 3.11.1)
   - Realm/Headers (3.11.1)
   - RealmSwift (3.11.1):
     - Realm (= 3.11.1)
+  - SwiftDate (5.0.13)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Charts
   - EstimoteSDK
+  - PushNotifications
   - RealmSwift
+  - SwiftDate (~> 5.0)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - Charts
     - EstimoteSDK
+    - PushNotifications
     - Realm
     - RealmSwift
+    - SwiftDate
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   EstimoteSDK: 61935c7fbcb9fe93b97b0360351aef66fb1c338d
+  PushNotifications: 8eee2fb66f3870025fe037883c88f5861f315bd0
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 46c87db97075827124c8cb4aef89664ade379cef
+PODFILE CHECKSUM: ede99e734029152420baec97c0a21cff2c622545
 
 COCOAPODS: 1.5.0

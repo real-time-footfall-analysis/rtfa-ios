@@ -19,6 +19,8 @@ final class Beacon: BaseObject {
     @objc dynamic var minor: Int = 0
     @objc dynamic var major: Int = 0
     @objc dynamic var uuid: String = ""
+    @objc dynamic var isQueue: Bool = false
+    @objc dynamic var name: String = ""
 }
 
 extension Beacon: Unmarshallable {
@@ -28,7 +30,10 @@ extension Beacon: Unmarshallable {
             let eventId = json["eventID"].int,
             let minor = json["minor"].int,
             let major = json["major"].int,
-            let uuid = json["uuid"].string else { return nil }
+            let uuid = json["uuid"].string,
+            let isQueue = json["isQueue"].bool,
+            let name = json["name"].string
+            else { return nil }
         
         self.id = id
         self.created = Date()
@@ -36,6 +41,8 @@ extension Beacon: Unmarshallable {
         self.minor = minor
         self.major = major
         self.uuid = uuid
+        self.isQueue = isQueue
+        self.name = name
     }
 }
 
@@ -46,5 +53,9 @@ extension Beacon: Region {
     
     func getRegionId() -> Int {
         return self.id
+    }
+    
+    func getName() -> String {
+        return self.name
     }
 }

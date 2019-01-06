@@ -13,6 +13,7 @@ final class AttendingEvent: BaseObject {
     
     convenience init(event: Event) {
         self.init()
+        self.id = event.id
         self.event = event
     }
 }

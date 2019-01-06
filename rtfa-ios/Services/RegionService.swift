@@ -10,15 +10,37 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import RealmSwift
+import PushNotifications
 
 class RegionService {
     static func sendRegionUpdate(region: Region, isEntering: Bool) {
+        
+        // If we enter a new region, save a log of it for paramedics
+        if isEntering {
+            if let region = region as? Beacon {
+                let visitedRegion = VisitedRegion(beacon: region)
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.add(visitedRegion)
+                }
+            } else if let region = region as? Location {
+                let visitedRegion = VisitedRegion(location: region)
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.add(visitedRegion)
+                }
+            }
+            try? PushNotifications.shared.subscribe(interest: "\(region.getRegionId())")
+        } else {
+            try? PushNotifications.shared.unsubscribe(interest: "\(region.getRegionId())")
+        }
+        
         guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
         let params: Parameters = ["uuid": userID,
                                   "eventId": region.getEventId(),
                                   "regionId": region.getRegionId(),
                                   "entering": isEntering,
-                                  "occurredAt": Int(Date().timeIntervalSince1970)]
+                                  "occurredAt": Int(Date().timeIntervalSince1970 * 1000)]
         
         Alamofire.request("\(apiURL)/update", method: .post, parameters: params, encoding: JSONEncoding.default)
     }

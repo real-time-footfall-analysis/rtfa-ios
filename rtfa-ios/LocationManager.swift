@@ -39,6 +39,8 @@ class LocationManager: NSObject {
         
         startMonitoringBeacons()
         startTrackingLocationChanges()
+        
+        print("Now Tracking \(beacons.count) beacons and \(locations.count) GPS locations")
     }
     
     func addRegionsToMonitor(beacons: [Beacon], locations: [Location]) {

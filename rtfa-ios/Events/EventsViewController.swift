@@ -18,6 +18,7 @@ class EventsViewController: UIViewController {
         case title = "title"
     }
     
+    private var locationManager: LocationManager!
     private var events: [Event] = []
     private var attendingEvents: [AttendingEvent] = []
 
@@ -38,12 +39,22 @@ class EventsViewController: UIViewController {
         
        // Ensure we can always swipe to go back
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        locationManager = LocationManager(beacons: [], locations: [])
+        locationManager.startMonitoring()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         updateEvents()
+        
+        self.locationManager.restartMonitoring(beacons: [], locations: [])
+        
+        for event in attendingEvents {
+            RegionService.getRegions(event: event.event!.id) { (beacons, locations) in
+                self.locationManager.addRegionsToMonitor(beacons: beacons, locations: locations)
+            }
+        }
     }
     
     func updateEvents() {
@@ -67,20 +78,32 @@ extension EventsViewController: UITableViewDelegate {
             return
         }
         
-        // TODO: Remove this when next view controller is ready
-        let realm = try! Realm()
+        let event: Event
         if indexPath.section == 0 {
-            try! realm.write {
-                realm.delete(attendingEvents[indexPath.row - 1])
-            }
+            event = attendingEvents[indexPath.row - 1].event!
         } else {
-            let attendEvent = AttendingEvent(event: events[indexPath.row - 1])
-            try! realm.write {
-                realm.add(attendEvent)
-            }
+            event = events[indexPath.row - 1]
         }
         
-        updateEvents()
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+        viewController.event = event
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
+//        // TODO: Remove this when next view controller is ready
+//        let realm = try! Realm()
+//        if indexPath.section == 0 {
+//            try! realm.write {
+//                realm.delete(attendingEvents[indexPath.row - 1])
+//            }
+//        } else {
+//            let attendEvent = AttendingEvent(event: events[indexPath.row - 1])
+//            try! realm.write {
+//                realm.add(attendEvent)
+//            }
+//        }
+//
+//        updateEvents()
     }
 }
 
