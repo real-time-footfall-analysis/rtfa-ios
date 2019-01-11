@@ -8,6 +8,7 @@
 
 import UIKit
 import PushNotifications
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.pushNotifications.start(instanceId: "5cb5ee8c-bcd9-4b07-ab76-95220dc679c1")
         self.pushNotifications.registerForRemoteNotifications()
         try? self.pushNotifications.subscribe(interest: "all")
-        try? self.pushNotifications.subscribe(interest: "20")
-//        try? self.pushNotifications.subscribe(interest: "1")
+        try? self.pushNotifications.subscribe(interest: "107")
+        
+        if let beacon = try! Realm().object(ofType: Beacon.self, forPrimaryKey: 107) {
+            print("GETTING STUCK IN THE ICE BAR")
+            let visitedRegion = VisitedRegion(beacon: beacon)
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(visitedRegion)
+            }
+        }
+        
         
         print(UIDevice.current.identifierForVendor)
         return true

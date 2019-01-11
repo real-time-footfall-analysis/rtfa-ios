@@ -52,7 +52,8 @@ class LocationManager: NSObject {
         beaconManager.requestAlwaysAuthorization()
         
         for beacon in beacons {
-            let beaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: beacon.uuid)!,
+            guard let uuid = UUID(uuidString: beacon.uuid) else { continue }
+            let beaconRegion = CLBeaconRegion(proximityUUID: uuid,
                                               major: CLBeaconMajorValue(beacon.major),
                                               minor: CLBeaconMinorValue(beacon.minor),
                                               identifier: "\(beacon.id)")
