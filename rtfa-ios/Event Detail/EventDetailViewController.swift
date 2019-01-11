@@ -91,29 +91,21 @@ class EventDetailViewController: UIViewController {
         }).sorted { (r1, r2) -> Bool in
             return r1.created! > r2.created!
         }
-        if lastLocations.count == 0 {
-            
-            GPSUtils.shared.authoriseIfNeeded()
-            GPSUtils.shared.getLocation { (location, altitude) in EmergencyService.sendEmergencyRequest(regions: [], event: self.event, loc: location)
-                self.showAlert(title: "Request Sent", message: "We have requested a paramedic to come to your location")
-            }
-        } else {
-            GPSUtils.shared.authoriseIfNeeded()
-            GPSUtils.shared.getLocation { (location, altitude) in
-                EmergencyService.sendEmergencyRequest(regions: lastLocations, event: self.event, loc: location)
-                
-                self.showAlert(title: "Request Sent", message: "We have requested a paramedic to come to your location")
-            }
+        
+        
+        GPSUtils.shared.authoriseIfNeeded()
+        GPSUtils.shared.getLocation { (location, altitude) in
+            let alert = UIAlertController(title: "Request Paramedic", message: "Type a message, and we will send a paramedic to your location", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: nil)
+            alert.addAction(UIAlertAction(title: "Send", style: .default, handler: { action in
+                EmergencyService.sendEmergencyRequest(regions: lastLocations, event: self.event, loc: location, desc: alert.textFields?[0].text ?? "")
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         
         
         
-    }
-    
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
     func updateAttendingButton() {
@@ -170,11 +162,9 @@ extension EventDetailViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.default.rawValue, for: indexPath) as! EventDetailQueueTimeTableViewCell
         cell.titleLabel.text = waitTime.region.getName()
         if waitTime.waitTime < 60 {
-            cell.timeLabel.text = "\(Int(waitTime.waitTime)) minutes"
+            cell.timeLabel.text = "\(Int(round(waitTime.waitTime))) seconds"
         } else {
-            
-            let hours = Int((waitTime.waitTime / 60) * 10)
-            cell.timeLabel.text = "\(Double(hours) / 10) hours"
+            cell.timeLabel.text = "\(Int(round(waitTime.waitTime / 60))) minutes"
         }
         return cell
     }

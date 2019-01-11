@@ -172,6 +172,7 @@ extension RegionBreakdownViewController: UITableViewDataSource {
         let barChartData = BarChartData(dataSet: dataset)
         
         cell.barChartView.data = barChartData
+        cell.barChartView.isUserInteractionEnabled = false
         
         formatBarChart(barChart: cell.barChartView)
         

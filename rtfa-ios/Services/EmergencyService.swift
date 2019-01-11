@@ -11,13 +11,14 @@ import Alamofire
 import CoreLocation
 
 class EmergencyService {
-    static func sendEmergencyRequest(regions: [VisitedRegion], event: Event, loc: CLLocationCoordinate2D?) {
+    static func sendEmergencyRequest(regions: [VisitedRegion], event: Event, loc: CLLocationCoordinate2D?, desc: String) {
         guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
         var params: Parameters = ["uuid": userID,
+                                  "description": desc,
                                   "regionIds": regions.map({ $0.region.getRegionId() }),
                                   "eventId": event.id,
                                   "dealtWith": false,
-                                  "occurredAt": Int(Date().timeIntervalSince1970 * 1000)]
+                                  "occurredAt": Int(Date().timeIntervalSince1970)]
         if let loc = loc {
             params["position"] = ["lat": loc.latitude, "lng": loc.longitude]
         }
